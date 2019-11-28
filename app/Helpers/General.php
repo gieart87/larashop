@@ -9,9 +9,9 @@ class General
     		$class_form = $options['class'];
         }
 
-    	$selected = '';
+    	$selected = [];
     	if (!empty($options['selected'])) {
-    		$selected = $options['selected'];
+    		$selected = is_array($options['selected']) ? $options['selected'] : [$options['selected']];
     	}
 
     	if (!empty($options['placeholder'])) {
@@ -21,16 +21,21 @@ class General
     			'parent_id' => 0
     		];
     		$array[] = $placeholder;
-    	}
+        }
+        
+        $multiple = '';
+        if (!empty($options['multiple'])) {
+            $multiple = 'multiple';
+        }
 
-        $select = '<select class="'.$class_form.'" name="'.$name.'">';
+        $select = '<select class="'.$class_form.'" name="'.$name.'" '.$multiple.'>';
     	$select .= General::getMultiLevelOptions($array, 0 , [], $selected);
     	$select .= '</select>';
 
     	return $select;
 	}
 
-	public static function getMultiLevelOptions($array, $parent_id = 0, $parents = [], $selected = null, $placeholder = null) {
+	public static function getMultiLevelOptions($array, $parent_id = 0, $parents = [], $selected = [], $placeholder = null) {
     	if ($placeholder != null) {
     		$placeholder_item = [
     			'id' => 0,
@@ -52,7 +57,7 @@ class General
         foreach ($array as $element) {
             $selected_item = '';
             if ($element['parent_id']==$parent_id) {
-                if ($element['id'] == $selected) {
+                if (in_array($element['id'], $selected)) {
                     $selected_item = 'selected';
                 }
                 $menu_html .= '<option value="'.$element['id'].'" '.$selected_item.'>';
