@@ -8,6 +8,9 @@
 
 <div class="content">
     <div class="row">
+        <div class="col-lg-4">
+            @include('admin.products.product_menus')
+        </div>
         <div class="col-lg-8">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom">
