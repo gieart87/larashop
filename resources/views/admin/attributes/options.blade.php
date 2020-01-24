@@ -24,11 +24,16 @@
                                         <td>{{ $option->id }}</td>
                                         <td>{{ $option->name }}</td>
                                         <td>
-                                            <a href="{{ url('admin/attributes/options/'. $option->id .'/edit') }}" class="btn btn-warning btn-sm">edit</a>
-                                            {!! Form::open(['url' => 'admin/attributes/options/'. $option->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
-                                            {!! Form::hidden('_method', 'DELETE') !!}
-                                            {!! Form::submit('remove', ['class' => 'btn btn-danger btn-sm']) !!}
-                                            {!! Form::close() !!}
+                                            @can('edit_attributes')
+                                                <a href="{{ url('admin/attributes/options/'. $option->id .'/edit') }}" class="btn btn-warning btn-sm">edit</a>
+                                            @endcan
+
+                                            @can('delete_attributes')
+                                                {!! Form::open(['url' => 'admin/attributes/options/'. $option->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
+                                                {!! Form::hidden('_method', 'DELETE') !!}
+                                                {!! Form::submit('remove', ['class' => 'btn btn-danger btn-sm']) !!}
+                                                {!! Form::close() !!}
+                                            @endcan
                                         </td>
                                     </tr>
                                 @empty

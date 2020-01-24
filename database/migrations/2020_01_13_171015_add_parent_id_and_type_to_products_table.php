@@ -29,6 +29,7 @@ class AddParentIdAndTypeToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign('products_parent_id_foreign');
             $table->dropColumn('parent_id');
             $table->dropColumn('type');
         });
