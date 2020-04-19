@@ -15,6 +15,13 @@ use Session;
 class RoleController extends Controller
 {
     use Authorizable;
+
+    public function __construct() {
+        parent::__construct();
+
+        $this->data['currentAdminMenu'] = 'role-user';
+        $this->data['currentAdminSubMenu'] = 'role';
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,10 +29,10 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
-        $permissions = Permission::all();
+        $this->data['roles'] = Role::all();
+        $this->data['permissions'] = Permission::all();
 
-        return view('admin.roles.index', compact('roles', 'permissions'));
+        return view('admin.roles.index', $this->data);
     }
 
     /**

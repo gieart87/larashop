@@ -40,7 +40,7 @@ class Product extends Model
 
     public function variants()
     {
-        return $this->hasMany('App\Models\Product', 'parent_id');
+        return $this->hasMany('App\Models\Product', 'parent_id')->orderBy('price', 'ASC');
     }
 
     public function parent()
@@ -55,7 +55,7 @@ class Product extends Model
 
     public function productImages()
     {
-        return $this->hasMany('App\Models\ProductImage');
+        return $this->hasMany('App\Models\ProductImage')->orderBy('id', 'DESC');
     }
 
     public static function statuses()
@@ -80,5 +80,17 @@ class Product extends Model
             'simple' => 'Simple',
             'configurable' => 'Configurable',
         ];
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1)
+                ->where('parent_id', NULL)
+                ->orderBy('created_at', 'DESC');
+    }
+
+    function price_label()
+    {
+        return ($this->variants->count() > 0) ? $this->variants->first()->price : $this->price;
     }
 }
