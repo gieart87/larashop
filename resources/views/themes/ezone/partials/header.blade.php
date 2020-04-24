@@ -169,8 +169,8 @@
                     </ul>
                 </div>
                 <div class="furniture-search">
-                    <form action="#">
-                        <input placeholder="I am Searching for . . ." type="text">
+                    <form action="{{ url('products') }}" method="GET">
+                        <input placeholder="I am Searching for . . ." type="text" name="q" value="{{ $q }}">
                         <button>
                             <i class="ti-search"></i>
                         </button>

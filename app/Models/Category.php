@@ -21,4 +21,24 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Models\Product', 'product_categories');
     }
+
+    public function scopeParentCategories($query)
+    {
+        return $query->where('parent_id', 0);
+    }
+
+    public static function childIds($parentId = 0)
+	{
+		$categories = Category::select('id','name','parent_id')->where('parent_id', $parentId)->get()->toArray();
+
+		$childIds = [];
+		if(!empty($categories)){
+			foreach($categories as $category){
+				$childIds[] = $category['id'];
+				$childIds = array_merge($childIds, Category::childIds($category['id']));
+			}
+		}
+
+		return $childIds;
+	}
 }
