@@ -20,6 +20,14 @@ Route::get('/carts/remove/{cartID}', 'CartController@destroy');
 Route::post('/carts', 'CartController@store');
 Route::post('/carts/update', 'CartController@update');
 
+Route::get('orders/checkout', 'OrderController@checkout');
+Route::post('orders/checkout', 'OrderController@doCheckout');
+Route::post('orders/shipping-cost', 'OrderController@shippingCost');
+Route::post('orders/set-shipping', 'OrderController@setShipping');
+Route::get('orders/complete', 'OrderController@complete');
+Route::get('orders/invoice', 'OrderController@invoice');
+Route::get('orders/cities', 'OrderController@cities');
+
 Route::group(
     ['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']],
     function () {

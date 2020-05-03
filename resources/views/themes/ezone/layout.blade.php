@@ -22,6 +22,9 @@
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/responsive.css') }}">
         <script src="{{ asset('themes/ezone/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
+        <!-- CSRF Token -->
+		<meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -48,6 +51,7 @@
         <script src="{{ asset('themes/ezone/assets/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('themes/ezone/assets/js/plugins.js') }}"></script>
         <script src="{{ asset('themes/ezone/assets/js/main.js') }}"></script>
+        <script src="{{ asset('themes/ezone/assets/js/app.js') }}"></script>
         <script>
             $(".delete").on("click", function () {
                 return confirm("Do you want to remove this?");

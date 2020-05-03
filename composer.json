@@ -12,6 +12,7 @@
         "darryldecode/cart": "^4.1",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.5",
         "laracasts/flash": "^3.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",

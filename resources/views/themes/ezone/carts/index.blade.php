@@ -78,7 +78,7 @@
 										<li>Subtotal<span>{{ number_format(\Cart::getSubTotal()) }}</span></li>
 										<li>Total<span>{{ number_format(\Cart::getTotal()) }}</span></li>
 									</ul>
-									<a href="#">Proceed to checkout</a>
+									<a href="{{ url('orders/checkout') }}">Proceed to checkout</a>
 								</div>
 							</div>
 						</div>
