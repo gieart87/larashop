@@ -16,6 +16,8 @@
 	<!-- checkout-area start -->
 	<div class="checkout-area ptb-100">
 		<div class="container">
+			@include('admin.partials.flash', ['$errors' => $errors])
+
 			{!! Form::model($user, ['url' => 'orders/checkout']) !!}
 			<div class="row">
 				<div class="col-lg-6 col-md-12 col-12">
@@ -78,7 +80,7 @@
 							<div class="col-md-6">
 								<div class="checkout-form-list">
 									<label>Email Address </label>										
-									{!! Form::text('email', null, ['placeholder' => 'Email', 'disabled' => true]) !!}
+									{!! Form::text('email', null, ['placeholder' => 'Email', 'readonly' => true]) !!}
 								</div>
 							</div>							
 						</div>
@@ -86,7 +88,7 @@
 							<div class="ship-different-title">
 								<h3>
 									<label>Ship to a different address?</label>
-									<input id="ship-box" type="checkbox" />
+									<input id="ship-box" type="checkbox" name="ship_to"/>
 								</h3>
 							</div>
 							<div id="ship-box-info">
@@ -123,13 +125,13 @@
 									<div class="col-md-12">
 										<div class="checkout-form-list">
 											<label>Province<span class="required">*</span></label>
-											{!! Form::select('shipping_province', $provinces, null, ['id' => 'shipping-province', 'placeholder' => '- Please Select - ']) !!}
+											{!! Form::select('shipping_province_id', $provinces, null, ['id' => 'shipping-province', 'placeholder' => '- Please Select - ']) !!}
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="checkout-form-list">
 											<label>City<span class="required">*</span></label>
-											{!! Form::select('shipping_city', [], null, ['id' => 'shipping-city','placeholder' => '- Please Select -'])!!}
+											{!! Form::select('shipping_city_id', [], null, ['id' => 'shipping-city','placeholder' => '- Please Select -'])!!}
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -203,7 +205,7 @@
 									</tr>
 									<tr class="cart-subtotal">
 										<th>Shipping Cost ({{ $totalWeight }} kg)</th>
-										<td><select id="shipping-cost-option" required></select></td>
+										<td><select id="shipping-cost-option" required name="shipping_service"></select></td>
 									</tr>
 									<tr class="order-total">
 										<th>Order Total</th>

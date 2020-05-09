@@ -17,7 +17,8 @@
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.0",
-        "spatie/laravel-permission": "^3.6"
+        "spatie/laravel-permission": "^3.6",
+        "squizlabs/php_codesniffer": "^3.5"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

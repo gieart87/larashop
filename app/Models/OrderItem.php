@@ -5,21 +5,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * ProductInventory
+ * OrderItem
  *
  * PHP version 7
  *
- * @category ProductInventory
- * @package  ProductInventory
+ * @category OrderItem
+ * @package  OrderItem
  * @author   Sugiarto <sugiarto.dlingo@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://localhost/
  */
-class ProductInventory extends Model
+class OrderItem extends Model
 {
 	protected $fillable = [
+		'order_id',
 		'product_id',
 		'qty',
+		'base_price',
+		'base_total',
+		'tax_amount',
+		'tax_percent',
+		'discount_amount',
+		'discount_percent',
+		'sub_total',
+		'sku',
+		'type',
+		'name',
+		'weight',
+		'attributes',
 	];
 
 	/**
@@ -30,20 +43,5 @@ class ProductInventory extends Model
 	public function product()
 	{
 		return $this->belongsTo('App\Models\Product');
-	}
-
-	/**
-	 * Reduce stock product
-	 *
-	 * @param int $productId product ID
-	 * @param int $qty       qty product
-	 *
-	 * @return void
-	 */
-	public static function reduceStock($productId, $qty)
-	{
-		$inventory = self::where('product_id', $productId)->firstOrFail();
-		$inventory->qty = $inventory->qty - $qty;
-		$inventory->save();
 	}
 }
