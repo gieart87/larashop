@@ -327,7 +327,7 @@ class OrderController extends Controller
 					'discount_percent' => $discountPercent,
 					'shipping_cost' => $shippingCost,
 					'grand_total' => $grandTotal,
-					'node' => $params['note'],
+					'note' => $params['note'],
 					'customer_first_name' => $params['first_name'],
 					'customer_last_name' => $params['last_name'],
 					'customer_company' => $params['company'],

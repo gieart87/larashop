@@ -49,6 +49,8 @@
 								Invoice ID:
 								<span class="text-dark">#{{ $order->code }}</span>
 								<br> {{ \General::datetimeFormat($order->order_date) }}
+								<br> Status: {{ $order->status }}
+								<br> Payment Status: {{ $order->payment_status }}
 								<br> Shipped by: {{ $order->shipping_service_name }}
 							</address>
 						</div>
