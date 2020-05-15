@@ -6,8 +6,24 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 
+/**
+ * CartController
+ *
+ * PHP version 7
+ *
+ * @category CartController
+ * @package  CartController
+ * @author   Sugiarto <sugiarto.dlingo@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT License
+ * @link     http://localhost/
+ */
 class CartController extends Controller
 {
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
 	public function __construct()
 	{
 		parent::__construct();
@@ -22,13 +38,14 @@ class CartController extends Controller
 		$items = \Cart::getContent();
 		$this->data['items'] =  $items;
 
-		return $this->load_theme('carts.index', $this->data);
+		return $this->loadTheme('carts.index', $this->data);
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
+	 * @param \Illuminate\Http\Request $request request form
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request)
@@ -41,28 +58,31 @@ class CartController extends Controller
 		$attributes = [];
 		if ($product->configurable()) {
 			$product = Product::from('products as p')
-							->whereRaw("p.parent_id = :parent_product_id
-							and (select pav.text_value 
-									from product_attribute_values pav
-									join attributes a on a.id = pav.attribute_id
-									where a.code = :size_code
-									and pav.product_id = p.id
-									limit 1
-								) = :size_value
-							and (select pav.text_value 
-									from product_attribute_values pav
-									join attributes a on a.id = pav.attribute_id
-									where a.code = :color_code
-									and pav.product_id = p.id
-									limit 1
-								) = :color_value
-								", [
-									'parent_product_id' => $product->id,
-									'size_code' => 'size',
-									'size_value' => $params['size'],
-									'color_code' => 'color',
-									'color_value' => $params['color'],
-								])->firstOrFail();
+				->whereRaw(
+					"p.parent_id = :parent_product_id
+				and (select pav.text_value 
+						from product_attribute_values pav
+						join attributes a on a.id = pav.attribute_id
+						where a.code = :size_code
+						and pav.product_id = p.id
+						limit 1
+					) = :size_value
+				and (select pav.text_value 
+						from product_attribute_values pav
+						join attributes a on a.id = pav.attribute_id
+						where a.code = :color_code
+						and pav.product_id = p.id
+						limit 1
+					) = :color_value
+					",
+					[
+						'parent_product_id' => $product->id,
+						'size_code' => 'size',
+						'size_value' => $params['size'],
+						'color_code' => 'color',
+						'color_value' => $params['color'],
+					]
+				)->firstOrFail();
 
 			$attributes['size'] = $params['size'];
 			$attributes['color'] = $params['color'];
@@ -86,8 +106,8 @@ class CartController extends Controller
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
+	 * @param \Illuminate\Http\Request $request request form
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update(Request $request)
@@ -96,12 +116,15 @@ class CartController extends Controller
 
 		if ($items = $params['items']) {
 			foreach ($items as $cartID => $item) {
-				\Cart::update($cartID, [
-					'quantity' => [
-						'relative' => false,
-						'value' => $item['quantity'],
-					],
-				]);
+				\Cart::update(
+					$cartID,
+					[
+						'quantity' => [
+							'relative' => false,
+							'value' => $item['quantity'],
+						],
+					]
+				);
 			}
 
 			\Session::flash('success', 'The cart has been updated');
@@ -112,7 +135,8 @@ class CartController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int  $id
+	 * @param string $id card ID
+	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id)

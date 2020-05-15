@@ -132,4 +132,14 @@ class Order extends Model
 	{
 		return Order::where('code', '=', $orderCode)->exists();
 	}
+
+	/**
+	 * Check order is paid or not
+	 *
+	 * @return boolean
+	 */
+	public function isPaid()
+	{
+		return $this->payment_status == self::PAID;
+	}
 }
