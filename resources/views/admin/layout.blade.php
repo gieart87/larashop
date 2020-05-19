@@ -18,6 +18,7 @@
 		<link href="{{ URL::asset('admin/assets/plugins/toastr/toastr.min.css') }}" rel="stylesheet" />
 		<!-- SLEEK CSS -->
 		<link id="sleek-css" rel="stylesheet" href="{{ URL::asset('admin/assets/css/sleek.css') }}" />
+		<link id="bsdp-css" rel="stylesheet" href="{{ URL::asset('admin/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
 		<!-- FAVICON -->
 		<link href="{{ URL::asset('admin/assets/img/favicon.png') }}" rel="shortcut icon" />
 		<!--
@@ -74,9 +75,27 @@
 	<script src="{{ URL::asset('admin/assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
 	<script src="{{ URL::asset('admin/assets/plugins/toastr/toastr.min.js') }}"></script>
 	<script src="{{ URL::asset('admin/assets/js/sleek.bundle.js') }}"></script>
+	<script src="{{ URL::asset('admin/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
 	<script>
+		$('.datepicker').datepicker({
+			format: 'yyyy-mm-dd'
+		});
+
 		$(".delete").on("submit", function () {
 			return confirm("Do you want to remove this?");
+		});
+
+		$("a.delete").on("click", function () {
+			event.preventDefault();
+			var orderId = $(this).attr('order-id');
+
+			if (confirm("Do you want to remove this?")) {
+				document.getElementById('delete-form-' + orderId ).submit();
+			}
+		});
+
+		$(".restore").on("click", function () {
+			return confirm("Do you want to restore this?");
 		});
 
 		function showHideConfigurableAttributes() {

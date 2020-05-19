@@ -57,6 +57,15 @@ Route::group(
 	
 		Route::resource('roles', 'RoleController');
 		Route::resource('users', 'UserController');
+
+		Route::get('orders/trashed', 'OrderController@trashed');
+		Route::get('orders/restore/{orderID}', 'OrderController@restore');
+		Route::resource('orders', 'OrderController');
+		Route::get('orders/{orderID}/cancel', 'OrderController@cancel');
+		Route::put('orders/cancel/{orderID}', 'OrderController@doCancel');
+		Route::post('orders/complete/{orderID}', 'OrderController@doComplete');
+
+		Route::resource('shipments', 'ShipmentController');
 	}
 );
 

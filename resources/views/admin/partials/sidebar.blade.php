@@ -43,6 +43,33 @@
 						</div>
 					</ul>
 				</li>
+				<li  class="has-sub {{ ($currentAdminMenu == 'order') ? 'expand active' : ''}}">
+					<a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#auth"
+						aria-expanded="false" aria-controls="dashboard">
+						<i class="mdi mdi-cart-outline"></i>
+						<span class="nav-text">Orders</span> <b class="caret"></b>
+					</a>
+					<ul class="collapse {{ ($currentAdminMenu == 'order') ? 'show' : ''}}"  id="auth"
+						data-parent="#sidebar-menu">
+						<div class="sub-menu">
+							<li  class="{{ ($currentAdminSubMenu == 'order') ? 'active' : ''}}" >
+								<a class="sidenav-item-link" href="{{ url('admin/orders')}}">
+								<span class="nav-text">Orders</span>
+								</a>
+							</li>
+							<li class="{{ ($currentAdminSubMenu == 'trashed-order') ? 'active' : ''}}">
+								<a class="sidenav-item-link" href="{{ url('admin/orders/trashed')}}">
+								<span class="nav-text">Trashed</span>
+								</a>
+							</li>
+							<li class="{{ ($currentAdminSubMenu == 'shipment') ? 'active' : ''}}">
+								<a class="sidenav-item-link" href="{{ url('admin/shipments')}}">
+								<span class="nav-text">Shipments</span>
+								</a>
+							</li>
+						</div>
+					</ul>
+				</li> 
 				<li  class="has-sub {{ ($currentAdminMenu == 'role-user') ? 'expand active' : ''}}">
 					<a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#auth"
 						aria-expanded="false" aria-controls="dashboard">
@@ -64,7 +91,7 @@
 							</li>
 						</div>
 					</ul>
-				</li>              
+				</li>             
 			</ul>
 		</div>
 	</div>

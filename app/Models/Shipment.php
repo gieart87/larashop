@@ -39,4 +39,14 @@ class Shipment extends Model
 		'shipped_by',
 		'shipped_at',
 	];
+
+	/**
+	 * Relationship to the order model
+	 *
+	 * @return void
+	 */
+	public function order()
+	{
+		return $this->belongsTo(\App\Models\Order::class);
+	}
 }
