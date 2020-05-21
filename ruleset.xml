@@ -2,7 +2,8 @@
 <ruleset name="LARABLOG-SCODE">
     <description>My custom coding standard.</description>
     <rule ref="PEAR">
-        <exclude name="PEAR.Commenting.FileComment.Missing"/>
+        <exclude name="PEAR.Commenting.FileComment"/>
+        <exclude name="PEAR.Commenting.ClassComment"/>
     </rule>
     <arg name="tab-width" value="4"/>
     <rule ref="PSR2">
