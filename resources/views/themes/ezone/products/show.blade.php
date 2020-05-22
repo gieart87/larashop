@@ -24,7 +24,17 @@
 								@endphp
 								@forelse ($product->productImages as $image)
 									<div class="tab-pane fade {{ ($i == 1) ? 'active show' : '' }}" id="pro-details{{ $i}}" role="tabpanel">
-										<img src="{{ asset('storage/'.$image->path) }}" alt="{{ $product->name }}">
+										<div class="easyzoom easyzoom--overlay">
+											@if ($image->large && $image->extra_large)
+												<a href="{{ asset('storage/'.$image->extra_large) }}">
+													<img src="{{ asset('storage/'.$image->large) }}" alt="{{ $product->name }}">
+												</a>
+											@else
+												<a href="{{ asset('themes/ezone/assets/img/product-details/bl1.jpg') }}">
+													<img src="{{ asset('themes/ezone/assets/img/product-details/l1.jpg') }}" alt="{{ $product->name }}">
+												</a>
+											@endif
+                                        </div>
 									</div>
 									@php
 										$i++
@@ -39,7 +49,11 @@
 								@endphp
 								@forelse ($product->productImages as $image)
 									<a class="{{ ($i == 1) ? 'active' : '' }} mr-12" href="#pro-details{{ $i }}" data-toggle="tab" role="tab" aria-selected="true">
-										<img src="{{ asset('themes/ezone/assets/img/product-details/s1.jpg') }}" alt="">
+										@if ($image->small)
+											<img src="{{ asset('storage/'.$image->small) }}" alt="{{ $product->name }}">
+										@else
+											<img src="{{ asset('themes/ezone/assets/img/product-details/s1.jpg') }}" alt="{{ $product->name }}">
+										@endif
 									</a>
 									@php
 										$i++

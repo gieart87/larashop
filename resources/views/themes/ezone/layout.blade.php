@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/pe-icon-7-stroke.css') }}">
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/icofont.css') }}">
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/meanmenu.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/easyzoom.css') }}">
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/bundle.css') }}">
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/responsive.css') }}">

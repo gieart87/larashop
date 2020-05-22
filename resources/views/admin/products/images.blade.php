@@ -25,7 +25,7 @@
                             @forelse ($productImages as $image)
                                 <tr>    
                                     <td>{{ $image->id }}</td>
-                                    <td><img src="{{ asset('storage/'.$image->path) }}" style="width:150px"/></td>
+                                    <td><img src="{{ asset('storage/'.$image->small) }}" style="width:100px"/></td>
                                     <td>{{ $image->created_at }}</td>
                                     <td>
                                         {!! Form::open(['url' => 'admin/products/images/'. $image->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}

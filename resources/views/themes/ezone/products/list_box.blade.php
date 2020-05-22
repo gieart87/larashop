@@ -3,7 +3,7 @@
         <div class="product-img list-img-width">
             <a href="{{ url('product/'. $product->slug) }}">
                 @if ($product->productImages->first())
-					<img src="{{ asset('storage/'.$product->productImages->first()->path) }}" alt="{{ $product->name }}">
+					<img src="{{ asset('storage/'.$product->productImages->first()->medium) }}" alt="{{ $product->name }}">
 				@else
 					<img src="{{ asset('themes/ezone/assets/img/product/fashion-colorful/1.jpg') }}" alt="{{ $product->name }}">
 				@endif
