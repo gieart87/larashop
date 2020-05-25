@@ -29,7 +29,8 @@ LaraShop is built for learning purpose and you can find out the complete develop
 
 ## Buy me a coffee
 
-If you find this usefull, feel free to buy me a coffee 
+If you find this usefull, feel free to buy me a coffee
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)] (https://www.paypal.com/cgi-bin/webscr?cmd=_button-designer&button_type=donate&flowloggingId=60a5a1c9d6726)
 
 
 ## License
