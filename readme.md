@@ -27,13 +27,6 @@ LaraShop is built for learning purpose and you can find out the complete develop
 - [Spatie Laravel Permission](https://github.com/spatie/laravel-permission)
 - [Laravel Shopping Cart](https://github.com/darryldecode/laravelshoppingcart)
 
-## Buy me a coffee
-
-If you find this usefull, feel free to buy me a coffee
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFYPGCDFBAL8L)
-
-
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
