@@ -353,13 +353,13 @@
     
     /* popular-product-active active */
     $('.popular-product-active').owlCarousel({
-        loop: true,
+        loop: false,
         nav: true,
         autoplay: false,
         autoplayTimeout: 5000,
         item: 4,
         margin: 57,
-        navText: ['<img src="assets/img/icon-img/left.png">', '<img src="assets/img/icon-img/right.png">'],
+        navText: ['<img src="/themes/ezone/assets/img/icon-img/left.png">', '<img src="/themes/ezone/assets/img/icon-img/right.png">'],
         responsive: {
             0: {
                 items: 1
@@ -375,34 +375,7 @@
             }
         }
     })
-    
-    
-    /* popular-product-active-2 active */
-    $('.popular-product-active-2').owlCarousel({
-        loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        item: 4,
-        margin: 22,
-        navText: ['<img src="assets/img/icon-img/left.png">', '<img src="assets/img/icon-img/right.png">'],
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            1000: {
-                items: 3
-            },
-            1200: {
-                items: 4
-            }
-        }
-    })
-    
-    
+
     /* trandy-product-active active */
     $('.trandy-product-active').owlCarousel({
         loop: true,

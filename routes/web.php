@@ -16,6 +16,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('/products', 'ProductController@index');
 Route::get('/product/{slug}', 'ProductController@show');
+Route::get('/products/quick-view/{slug}', 'ProductController@quickView');
 
 Route::get('/carts', 'CartController@index');
 Route::get('/carts/remove/{cartID}', 'CartController@destroy');

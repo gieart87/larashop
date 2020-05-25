@@ -18,12 +18,12 @@
         <div class="product-content-list">
             <div class="product-list-info">
                 <h4><a href="{{ url('product/'. $product->slug) }}">{{ $product->name }}</a></h4>
-                <span>{{ number_format($product->price_label()) }}</span>
+                <span>{{ number_format($product->priceLabel()) }}</span>
                 <p>{!! $product->short_description !!}</p>
             </div>
             <div class="product-list-cart-wishlist">
                 <div class="product-list-cart">
-                    <a class="btn-hover list-btn-style" href="#">add to cart</a>
+                    <a class="btn-hover list-btn-style add-to-card" href=""  product-id="{{ $product->id }}" product-type="{{ $product->type }}" product-slug="{{ $product->slug }}">add to cart</a>
                 </div>
                 <div class="product-list-wishlist">
                     <a class="btn-hover list-btn-wishlist" href="#">

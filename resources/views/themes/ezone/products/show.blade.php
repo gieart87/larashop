@@ -68,20 +68,8 @@
 				<div class="col-md-12 col-lg-5 col-12">
 					<div class="product-details-content">
 						<h3>{{ $product->name }}</h3>
-						<div class="rating-number">
-							<div class="quick-view-rating">
-								<i class="pe-7s-star red-star"></i>
-								<i class="pe-7s-star red-star"></i>
-								<i class="pe-7s-star"></i>
-								<i class="pe-7s-star"></i>
-								<i class="pe-7s-star"></i>
-							</div>
-							<div class="quick-view-number">
-								<span>2 Ratting (S)</span>
-							</div>
-						</div>
 						<div class="details-price">
-							<span>{{ number_format($product->price_label()) }}</span>
+							<span>{{ number_format($product->priceLabel()) }}</span>
 						</div>
 						<p>{{ $product->short_description }}</p>
 						{!! Form::open(['url' => 'carts']) !!}
