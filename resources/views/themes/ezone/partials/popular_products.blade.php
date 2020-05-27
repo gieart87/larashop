@@ -22,7 +22,7 @@
 									@endif
 								</a>
 								<div class="product-action">
-									<a class="animate-left" title="Wishlist" href="#">
+									<a class="animate-left add-to-fav" title="Wishlist"  product-slug="{{ $product->slug }}" href="">
 										<i class="pe-7s-like"></i>
 									</a>
 									<a class="animate-top add-to-card" title="Add To Cart" href="" product-id="{{ $product->id }}" product-type="{{ $product->type }}" product-slug="{{ $product->slug }}">
