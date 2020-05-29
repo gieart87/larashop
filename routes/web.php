@@ -69,6 +69,10 @@ Route::group(
 		Route::post('orders/complete/{orderID}', 'OrderController@doComplete');
 
 		Route::resource('shipments', 'ShipmentController');
+
+		Route::resource('slides', 'SlideController');
+		Route::get('slides/{slideID}/up', 'SlideController@moveUp');
+		Route::get('slides/{slideID}/down', 'SlideController@moveDown');
 	}
 );
 
