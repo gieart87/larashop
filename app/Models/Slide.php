@@ -45,7 +45,7 @@ class Slide extends Model
 	public function prevSlide()
 	{
 		return self::where('position', '<', $this->position)
-			->orderBy('position', 'ASC')
+			->orderBy('position', 'DESC')
 			->first();
 	}
 
