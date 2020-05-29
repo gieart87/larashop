@@ -12,7 +12,7 @@
                         <h2>Options for : {{ $attribute->name }}</h2>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered table-stripped">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <th style="width:10%">#</th>
                                 <th>Name</th>

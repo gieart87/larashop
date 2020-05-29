@@ -11,7 +11,7 @@
 					<div class="card-body">
 						@include('admin.partials.flash')
 						@include('admin.orders.filter');
-						<table class="table table-bordered table-stripped">
+						<table class="table table-bordered table-striped">
 							<thead>
 								<th>Order ID</th>
 								<th>Grand Total</th>

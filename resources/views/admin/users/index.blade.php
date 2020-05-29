@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         @include('admin.partials.flash')
-                        <table class="table table-bordered table-stripped">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <th>#</th>
                                 <th>Name</th>
