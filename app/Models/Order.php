@@ -104,6 +104,19 @@ class Order extends Model
 	}
 
 	/**
+	 * Define scope forUser
+	 *
+	 * @param Eloquent $query query builder
+	 * @param User     $user  limit
+	 *
+	 * @return void
+	 */
+	public function scopeForUser($query, $user)
+	{
+		return $query->where('user_id', $user->id);
+	}
+
+	/**
 	 * Generate order code
 	 *
 	 * @return string

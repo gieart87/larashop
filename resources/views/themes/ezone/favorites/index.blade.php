@@ -57,11 +57,9 @@
 										</tr>
 									@endforelse
                                 </tbody>
-                            </table>
+							</table>
+							{{ $favorites->links() }}
 						</div>
-					</div>
-					<div class="mt-50 text-center">
-						{{ $favorites->links() }}
 					</div>
 				</div>
 			</div>
