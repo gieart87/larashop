@@ -70,6 +70,38 @@
 						</div>
 					</ul>
 				</li>
+				<li  class="has-sub {{ ($currentAdminMenu == 'report') ? 'expand active' : ''}}">
+					<a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#report"
+						aria-expanded="false" aria-controls="report">
+						<i class="mdi mdi-signal-cellular-outline"></i>
+						<span class="nav-text">Reports</span> <b class="caret"></b>
+					</a>
+					<ul class="collapse {{ ($currentAdminMenu == 'report') ? 'show' : ''}}"  id="report"
+						data-parent="#sidebar-menu">
+						<div class="sub-menu">
+							<li  class="{{ ($currentAdminSubMenu == 'report-revenue') ? 'active' : ''}}" >
+								<a class="sidenav-item-link" href="{{ url('admin/reports/revenue')}}">
+								<span class="nav-text">Revenue</span>
+								</a>
+							</li>
+							<li  class="{{ ($currentAdminSubMenu == 'report-product') ? 'active' : ''}}" >
+								<a class="sidenav-item-link" href="{{ url('admin/reports/product')}}">
+								<span class="nav-text">Products</span>
+								</a>
+							</li>
+							<li  class="{{ ($currentAdminSubMenu == 'report-inventory') ? 'active' : ''}}" >
+								<a class="sidenav-item-link" href="{{ url('admin/reports/inventory')}}">
+								<span class="nav-text">Inventories</span>
+								</a>
+							</li>
+							<li  class="{{ ($currentAdminSubMenu == 'report-payment') ? 'active' : ''}}" >
+								<a class="sidenav-item-link" href="{{ url('admin/reports/payment')}}">
+								<span class="nav-text">Payments</span>
+								</a>
+							</li>
+						</div>
+					</ul>
+				</li>
 				<li  class="has-sub {{ ($currentAdminMenu == 'general') ? 'expand active' : ''}}">
 					<a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#general"
 						aria-expanded="false" aria-controls="general">

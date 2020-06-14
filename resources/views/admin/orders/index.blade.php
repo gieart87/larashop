@@ -10,7 +10,7 @@
 					</div>
 					<div class="card-body">
 						@include('admin.partials.flash')
-						@include('admin.orders.filter');
+						@include('admin.orders.filter')
 						<table class="table table-bordered table-striped">
 							<thead>
 								<th>Order ID</th>

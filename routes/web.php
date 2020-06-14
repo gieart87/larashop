@@ -78,6 +78,11 @@ Route::group(
 		Route::resource('slides', 'SlideController');
 		Route::get('slides/{slideID}/up', 'SlideController@moveUp');
 		Route::get('slides/{slideID}/down', 'SlideController@moveDown');
+
+		Route::get('reports/revenue', 'ReportController@revenue');
+		Route::get('reports/product', 'ReportController@product');
+		Route::get('reports/inventory', 'ReportController@inventory');
+		Route::get('reports/payment', 'ReportController@payment');
 	}
 );
 
